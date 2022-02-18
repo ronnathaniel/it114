@@ -10,13 +10,28 @@ package src;
 import java.util.*;
 
 
+/**
+ * The type Receptionist.
+ */
 public class Receptionist {
 
+    /**
+     * The Stylists.
+     */
     List<String> stylists;
+    /**
+     * The Appts.
+     */
     List<Appointment> appts;
+    /**
+     * The Keyboard.
+     */
     Scanner keyboard = new Scanner(System.in);
 
 
+    /**
+     * Instantiates a new Receptionist.
+     */
     public Receptionist() {
         appts = new ArrayList<Appointment>();
 
@@ -28,6 +43,9 @@ public class Receptionist {
     }
 
 
+    /**
+     * Create appointment.
+     */
     public void createAppointment() {
         boolean validatedStylist, validatedClientFN, validatedClientLN, validatedDate, validatedTime;
         Appointment clientAppt = new Appointment();

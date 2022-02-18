@@ -10,13 +10,29 @@ package src;
 import java.util.*;
 
 
+/**
+ * The type Utils.
+ */
 public class Utils {
 
+    /**
+     * Fmt Strings to pose as a Question.
+     *
+     * @param request the request
+     * @return the string
+     */
     public static String fmtQuestion(String request) {
         request += "? \n->\t";
         return request;
     }
 
+    /**
+     * Input String.
+     *
+     * @param request  the request
+     * @param keyboard the keyboard
+     * @return the string
+     */
     public static String input(String request, Scanner keyboard) {
         request = Utils.fmtQuestion(request);
         System.out.println(request);
@@ -24,6 +40,13 @@ public class Utils {
         return response;
     }
 
+    /**
+     * Input String List.
+     *
+     * @param request  the request
+     * @param keyboard the keyboard
+     * @return the list
+     */
     public static List<String> inputStrArr(String request, Scanner keyboard) {
         request = Utils.fmtQuestion(request);
         System.out.println(request);

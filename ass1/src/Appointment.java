@@ -10,19 +10,52 @@ package src;
 import java.util.*;
 
 
+/**
+ * The type Appointment.
+ */
 public class Appointment {
 
+    /**
+     * The Stylist name.
+     */
     String stylistName,
-        clientFirstName,
-        clientLastName,
-        time,
-        date;
+    /**
+     * The Client first name.
+     */
+    clientFirstName,
+    /**
+     * The Client last name.
+     */
+    clientLastName,
+    /**
+     * The Time.
+     */
+    time,
+    /**
+     * The Date.
+     */
+    date;
+    /**
+     * The check for a verified Appointment.
+     */
     Boolean isVerified;
 
+    /**
+     * Instantiates a new Appointment.
+     */
     public Appointment() {
         this("", "", "", "", "");
     }
 
+    /**
+     * Instantiates a new Appointment.
+     *
+     * @param stylistN the stylist n
+     * @param clientFN the client fn
+     * @param clientLN the client ln
+     * @param time     the time
+     * @param date     the date
+     */
     public Appointment(
         String stylistN,
         String clientFN,
@@ -39,20 +72,37 @@ public class Appointment {
     }
 
 
+    /**
+     * Sets Appointment as Unverified.
+     */
     public void setUnverified() {
         this.isVerified = false;
     }
 
+    /**
+     * Check if Appointment is Verified. If so, apptopriately sets the field.
+     */
     public void checkIfVerified() {
         if (this.isVerified == null) {
             this.isVerified = true;
         }
     }
 
+    /**
+     * Gets Last Operation status.
+     *
+     * @return the last operation status
+     */
     public boolean getOperationStatus() {
         return this.isVerified != false;
     }
 
+    /**
+     * Sets stylist.
+     *
+     * @param stylist     the stylist
+     * @param allStylists all stylists
+     */
     public void setStylist(String stylist, List<String> allStylists) {
         this.stylistName = stylist;
         if (!this.verifyStylist(allStylists)) {
@@ -62,6 +112,11 @@ public class Appointment {
         }
     }
 
+    /**
+     * Sets client first name.
+     *
+     * @param clientFN the Client First Name
+     */
     public void setClientFirstName(String clientFN) {
         if (clientFN.isEmpty()) {
             System.out.print("Error: No First Name was entered: ");
@@ -72,6 +127,11 @@ public class Appointment {
         }
     }
 
+    /**
+     * Sets client last name.
+     *
+     * @param clientLN the Client Last Name
+     */
     public void setClientLastName(String clientLN) {
         if (clientLN.isEmpty()) {
             System.out.print("Error: No Last Name was entered: ");
@@ -82,6 +142,11 @@ public class Appointment {
         }
     }
 
+    /**
+     * Sets date.
+     *
+     * @param apptDate the Appt date
+     */
     public void setDate(String apptDate) {
         if (apptDate.isEmpty()) {
             System.out.println("Error: No Date was entered.");
@@ -97,6 +162,11 @@ public class Appointment {
         }
     }
 
+    /**
+     * Sets time.
+     *
+     * @param apptTime the Appt time
+     */
     public void setTime(String apptTime) {
         if (apptTime.isEmpty()) {
             System.out.println("Error: No Time was entered.");
@@ -112,6 +182,12 @@ public class Appointment {
         }
     }
 
+    /**
+     * Verify stylist boolean.
+     *
+     * @param stylists the stylists
+     * @return the boolean. Whether Stylist is Verified.
+     */
     public boolean verifyStylist(List<String> stylists) {
         for (int i = 0; i < stylists.size(); ++i) {
             if (stylists.get(i).equalsIgnoreCase(this.stylistName)) {
@@ -123,6 +199,12 @@ public class Appointment {
         return false;
     }
 
+    /**
+     * Verify date boolean.
+     *
+     * @param dateSplit the date split
+     * @return the boolean. Whether Date is Verified.
+     */
     public boolean verifyDate(String[] dateSplit) {
         if (dateSplit.length != 3) {
             return false;
@@ -153,6 +235,12 @@ public class Appointment {
         return true;
     }
 
+    /**
+     * Verify time boolean.
+     *
+     * @param timeSplit the time split
+     * @return the boolean. Whether Time is Verified.
+     */
     public boolean verifyTime(String[] timeSplit) {
         if (timeSplit.length != 2) {
             return false;
