@@ -1,61 +1,56 @@
-
-/*
- * filename: Appointment.java
- * Author: Ron Nathaniel
- * Course: IT 114:452
- *
- */
+//===================================================
+// Name       : Ron Nathaniel
+// SID        : rn328
+// Course     : IT 114
+// Section    : 452
+// Instructor : Professor Deek
+// T.A        : N/A
+//===================================================
+//===================================================
+// Assignment # : 1
+// Date         : Feb 18 2022
+//===================================================
+//===================================================
+// Filename     : Appointment.java
+// Description : This program defines Appointment,
+// the container for all appointment-related
+// metadata. Metadata is divded up per appointment.
+//===================================================
 
 package src;
 import java.util.*;
 
 
-/**
- * The type Appointment.
- */
+//=================================================
+// Appointment - container object for appt metadata
+//=================================================
 public class Appointment {
 
-    /**
-     * The Stylist name.
-     */
+    // declare local variables
     String stylistName,
-    /**
-     * The Client first name.
-     */
-    clientFirstName,
-    /**
-     * The Client last name.
-     */
-    clientLastName,
-    /**
-     * The Time.
-     */
-    time,
-    /**
-     * The Date.
-     */
-    date;
-    /**
-     * The check for a verified Appointment.
-     */
+        clientFirstName,
+        clientLastName,
+        time,
+        date;
     Boolean isVerified;
 
-    /**
-     * Instantiates a new Appointment.
-     */
+    //=================================================
+    // Appointment - default constructor with no params
+    //  Input - N/A
+    //  Output - the instantiated Appointment
+    //=================================================
     public Appointment() {
         this("", "", "", "", "");
     }
 
-    /**
-     * Instantiates a new Appointment.
-     *
-     * @param stylistN the stylist n
-     * @param clientFN the client fn
-     * @param clientLN the client ln
-     * @param time     the time
-     * @param date     the date
-     */
+
+    //=================================================
+    // Appointment - constructor
+    //  Input - all metadata, including the stylist's
+    // first name, the client's first and last names,
+    // the appt time and date.
+    //  Output - the instantiated Appointment
+    //=================================================
     public Appointment(
         String stylistN,
         String clientFN,
@@ -72,37 +67,50 @@ public class Appointment {
     }
 
 
-    /**
-     * Sets Appointment as Unverified.
-     */
+    //=================================================
+    // setUnverified - set appointment to Unverified
+    // causing the appointment to never be booked.
+    // once unverified, irreversable.
+    //  Input - the number representing feet to convert
+    //  Output - return the equivalent number of meters
+    //=================================================
     public void setUnverified() {
         this.isVerified = false;
     }
 
-    /**
-     * Check if Appointment is Verified. If so, apptopriately sets the field.
-     */
+    //=================================================
+    // checkIfVerified - checks if the appointment's should
+    // be verified. IF so, it fixes it automatically.
+    // Null can be corrected as True, since it was
+    // never Unverified until that point.
+    // checkIfVerified is called after appt creation
+    // but before appointment booking.
+    //  Input - N/A
+    //  Output - N/A
+    //=================================================
     public void checkIfVerified() {
         if (this.isVerified == null) {
             this.isVerified = true;
         }
     }
 
-    /**
-     * Gets Last Operation status.
-     *
-     * @return the last operation status
-     */
+    //=================================================
+    // getOperationStatus - checks appointment's verification
+    // status. Status is Up/True if it has not yet been Unverified.
+    //  Input - N/A
+    //  Output - True if not Unverfied.
+    //=================================================
     public boolean getOperationStatus() {
         return this.isVerified != false;
     }
 
-    /**
-     * Sets stylist.
-     *
-     * @param stylist     the stylist
-     * @param allStylists all stylists
-     */
+    //=================================================
+    // setStylist - set's the appt's Stylist. Checks if
+    // that stylist is known.
+    //  Input - stylist as the appt's stylist, and
+    // allStylists as all known stylists.
+    //  Output - N/A
+    //=================================================
     public void setStylist(String stylist, List<String> allStylists) {
         this.stylistName = stylist;
         if (!this.verifyStylist(allStylists)) {
@@ -112,11 +120,12 @@ public class Appointment {
         }
     }
 
-    /**
-     * Sets client first name.
-     *
-     * @param clientFN the Client First Name
-     */
+    //=================================================
+    // setClientFirstName - set's the appointment's
+    // client's first name.
+    //  Input - the first name
+    //  Output - N/A
+    //=================================================
     public void setClientFirstName(String clientFN) {
         if (clientFN.isEmpty()) {
             System.out.print("Error: No First Name was entered: ");
@@ -127,11 +136,12 @@ public class Appointment {
         }
     }
 
-    /**
-     * Sets client last name.
-     *
-     * @param clientLN the Client Last Name
-     */
+    //=================================================
+    // setClientLastName - set's the appointment's
+    // client's last name.
+    //  Input - the last name
+    //  Output - N/A
+    //=================================================
     public void setClientLastName(String clientLN) {
         if (clientLN.isEmpty()) {
             System.out.print("Error: No Last Name was entered: ");
@@ -142,11 +152,12 @@ public class Appointment {
         }
     }
 
-    /**
-     * Sets date.
-     *
-     * @param apptDate the Appt date
-     */
+    //=================================================
+    // setDate - set's the appointment's
+    // date.
+    //  Input - the date as a string. MM/DD/YYYY
+    //  Output - N/A
+    //=================================================
     public void setDate(String apptDate) {
         if (apptDate.isEmpty()) {
             System.out.println("Error: No Date was entered.");
@@ -162,11 +173,12 @@ public class Appointment {
         }
     }
 
-    /**
-     * Sets time.
-     *
-     * @param apptTime the Appt time
-     */
+    //=================================================
+    // setTime - set's the appointment's
+    // time.
+    //  Input - the date as a string 24 time. HH:MM
+    //  Output - N/A
+    //=================================================
     public void setTime(String apptTime) {
         if (apptTime.isEmpty()) {
             System.out.println("Error: No Time was entered.");
@@ -182,12 +194,12 @@ public class Appointment {
         }
     }
 
-    /**
-     * Verify stylist boolean.
-     *
-     * @param stylists the stylists
-     * @return the boolean. Whether Stylist is Verified.
-     */
+    //=================================================
+    // verifyStylist - internal check to see if the
+    // stylist attempted to add is known.
+    //  Input - all known stylists
+    //  Output - Bool, True if the stylist is known
+    //=================================================
     public boolean verifyStylist(List<String> stylists) {
         for (int i = 0; i < stylists.size(); ++i) {
             if (stylists.get(i).equalsIgnoreCase(this.stylistName)) {
@@ -199,12 +211,13 @@ public class Appointment {
         return false;
     }
 
-    /**
-     * Verify date boolean.
-     *
-     * @param dateSplit the date split
-     * @return the boolean. Whether Date is Verified.
-     */
+    //=================================================
+    // verifyDate - Checks to see if Date is Valid date.
+    // can be a past date, for bookeeping purposes.
+    //  Input - The date as a Str Arr in 3 parts,
+    // MM, DD, and YYYY
+    //  Output - Bool, True if the date is valid
+    //=================================================
     public boolean verifyDate(String[] dateSplit) {
         if (dateSplit.length != 3) {
             return false;
@@ -235,12 +248,13 @@ public class Appointment {
         return true;
     }
 
-    /**
-     * Verify time boolean.
-     *
-     * @param timeSplit the time split
-     * @return the boolean. Whether Time is Verified.
-     */
+    //=================================================
+    // verifyTime - Checks to see if Time is Valid time.
+    // can be a past date, for bookeeping purposes.
+    //  Input - The time as a Str Arr in 2 parts,
+    // HH and MM
+    //  Output - Bool, True if the time is valid
+    //=================================================
     public boolean verifyTime(String[] timeSplit) {
         if (timeSplit.length != 2) {
             return false;

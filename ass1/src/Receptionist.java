@@ -1,37 +1,42 @@
-
-/*
- * filename: Receptionist.java
- * Author: Ron Nathaniel
- * Course: IT 114:452
- *
- */
+//===================================================
+// Name       : Ron Nathaniel
+// SID        : rn328
+// Course     : IT 114
+// Section    : 452
+// Instructor : Professor Deek
+// T.A        : N/A
+//===================================================
+//===================================================
+// Assignment # : 1
+// Date         : Feb 18 2022
+//===================================================
+//===================================================
+// Filename    : Receptionist.java
+// Description : This program runs The Receptionist3000
+// program. It is in charge of querying, verifying, and
+// adding of appointments into the books.
+//===================================================
 
 package src;
 import java.util.*;
 
 
-/**
- * The type Receptionist.
- */
+//=================================================
+// Receptionist - container object for the Recptionist
+//=================================================
 public class Receptionist {
 
-    /**
-     * The Stylists.
-     */
+    // declare local variables
     List<String> stylists;
-    /**
-     * The Appts.
-     */
     List<Appointment> appts;
-    /**
-     * The Keyboard.
-     */
     Scanner keyboard = new Scanner(System.in);
 
 
-    /**
-     * Instantiates a new Receptionist.
-     */
+    //=================================================
+    // Receptionist - constructor
+    //  Input - N/A
+    //  Output - the instantiated Recptionist
+    //=================================================
     public Receptionist() {
         appts = new ArrayList<Appointment>();
 
@@ -43,9 +48,14 @@ public class Receptionist {
     }
 
 
-    /**
-     * Create appointment.
-     */
+    //=================================================
+    // createAppointment - Creates an appointment.
+    // firstly verifies all inputs of the appointment
+    // metadata, and if all is valid, then the appointment
+    // is booked.
+    //  Input - N/A
+    //  Output - N/A
+    //=================================================
     public void createAppointment() {
         boolean validatedStylist, validatedClientFN, validatedClientLN, validatedDate, validatedTime;
         Appointment clientAppt = new Appointment();
